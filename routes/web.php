@@ -33,15 +33,3 @@ Route::prefix('admin')->group(function () {
         })->name('admin.dashboard');
     });
 });
-
-// 旧ダッシュボードルート（後で削除）
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard', [
-        'stats' => [
-            'totalProjects' => 12,
-            'activeTasks' => 34,
-            'completedTasks' => 156,
-            'teamMembers' => 8,
-        ],
-    ]);
-})->name('dashboard');
