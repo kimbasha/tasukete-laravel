@@ -54,5 +54,20 @@ class DatabaseSeeder extends Seeder
             'has_day_tickets' => false,
             'status' => 'upcoming',
         ]);
+
+        // 管理者ユーザーを作成
+        \App\Models\AdminUser::create([
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'super_admin',
+            'troupe_id' => null,
+        ]);
+
+        \App\Models\AdminUser::create([
+            'email' => 'theater@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'theater_admin',
+            'troupe_id' => $troupe1->id,
+        ]);
     }
 }
