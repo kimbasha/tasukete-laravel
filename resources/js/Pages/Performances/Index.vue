@@ -161,10 +161,11 @@ const formatDate = (dateString) => {
             </div>
 
             <div v-else class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div
+                <Link
                     v-for="performance in filteredPerformances"
                     :key="performance.id"
-                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                    :href="`/performances/${performance.id}`"
+                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
                 >
                     <!-- ポスター -->
                     <div class="aspect-[3/4] bg-gray-200">
@@ -221,7 +222,7 @@ const formatDate = (dateString) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </main>
     </div>
