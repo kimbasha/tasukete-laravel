@@ -5,7 +5,6 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -16,12 +15,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(PrimeVue, {
-                theme: {
-                    preset: Aura,
-                    options: {
-                        darkModeSelector: false,
-                    }
-                }
+                unstyled: false
             })
             .mount(el);
     },
