@@ -1,159 +1,59 @@
-# タスケテ 〜HELP ME!!〜
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-当日券特化型予約サービス
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## 概要
+## About Laravel
 
-「タスケテ 〜HELP ME!!〜」は、演劇の当日券情報を簡単に見つけられる予約サービスです。
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- **エンドユーザー**: 今日以降の公演情報・当日券の有無を確認
-- **劇団管理者**: 自劇団の公演情報を管理
-- **システム管理者**: 全劇団・公演を統括管理
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## 技術スタック
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-### バックエンド
-- Laravel 11.x
-- MySQL 8.x
-- Laravel Sanctum（認証）
+## Learning Laravel
 
-### フロントエンド
-- Vue 3（Composition API）
-- Inertia.js
-- Tailwind CSS 4
-- PrimeVue 4（管理画面）
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-## ドキュメント
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-詳細な仕様は `docs/` ディレクトリを参照してください：
+## Laravel Sponsors
 
-- [01_database_schema.md](docs/01_database_schema.md) - データベース設計
-- [02_features.md](docs/02_features.md) - 機能仕様
-- [03_routes_and_api.md](docs/03_routes_and_api.md) - ルーティング・API仕様
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-## セットアップ
+### Premium Partners
 
-### 1. 依存関係のインストール
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-```bash
-# Composerパッケージ
-composer install
+## Contributing
 
-# Node.jsパッケージ
-npm install
-```
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-### 2. 環境設定
+## Code of Conduct
 
-```bash
-# .envファイルを作成
-cp .env.example .env
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-# アプリケーションキーを生成
-php artisan key:generate
-```
+## Security Vulnerabilities
 
-### 3. データベース設定
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-`.env` ファイルでデータベース接続情報を設定：
+## License
 
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=tasukete
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
-### 4. マイグレーション実行
-
-```bash
-php artisan migrate
-```
-
-### 5. シンボリックリンク作成
-
-```bash
-php artisan storage:link
-```
-
-## 開発サーバー起動
-
-### 方法1: 開発モード（推奨）
-
-ターミナル1:
-```bash
-npm run dev
-```
-
-ターミナル2:
-```bash
-php artisan serve
-```
-
-ブラウザで http://127.0.0.1:8000 にアクセス
-
-### 方法2: 本番ビルド
-
-```bash
-npm run build
-php artisan serve
-```
-
-## プロジェクト構成
-
-```
-tasukete-laravel/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── Admin/          # 管理画面コントローラー
-│   │   │   └── Auth/           # 認証コントローラー
-│   │   └── Middleware/
-│   │       └── HandleInertiaRequests.php
-│   ├── Models/
-│   │   ├── Troupe.php          # 劇団モデル
-│   │   ├── Performance.php     # 公演モデル
-│   │   └── AdminUser.php       # 管理者モデル
-│   └── Policies/               # 認可ポリシー
-├── resources/
-│   ├── js/
-│   │   ├── Layouts/
-│   │   │   ├── DashboardLayout.vue  # 管理画面レイアウト
-│   │   │   └── GuestLayout.vue      # 公開ページレイアウト
-│   │   └── Pages/
-│   │       ├── Welcome.vue          # トップページ
-│   │       └── Dashboard.vue        # ダッシュボード
-│   ├── css/
-│   │   └── app.css
-│   └── views/
-│       └── app.blade.php       # Inertiaルートテンプレート
-├── routes/
-│   └── web.php                 # ルート定義
-├── docs/                       # 仕様書
-└── README.md
-```
-
-## 開発方針
-
-### PRルール
-- 1PR = 1つの意思決定
-- 200行以内を目安
-- mainへの直プッシュ禁止、PR必須
-
-### ブランチ戦略
-- `main`: 本番環境
-- `feature/*`: 機能開発
-
-## ライセンス
-
-MIT License
-
-## 関連リンク
-
-- [Laravel Documentation](https://laravel.com/docs)
-- [Vue 3 Documentation](https://vuejs.org/)
-- [Inertia.js Documentation](https://inertiajs.com/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-- [PrimeVue Documentation](https://primevue.org/)
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
