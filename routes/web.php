@@ -4,30 +4,10 @@ use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// 公開ページ
+// 公開ページ（一時的にログインページへリダイレクト）
 Route::get('/', function () {
-    $performances = \App\Models\Performance::with('troupe')
-        ->orderBy('performance_date')
-        ->get()
-        ->map(function ($performance) {
-            return [
-                'id' => $performance->id,
-                'title' => $performance->title,
-                'troupe_name' => $performance->troupe->name,
-                'venue' => $performance->venue,
-                'area' => $performance->area,
-                'performance_date' => $performance->performance_date->format('Y-m-d'),
-                'start_time' => $performance->start_time,
-                'ticket_price' => $performance->ticket_price,
-                'has_day_tickets' => $performance->has_day_tickets,
-                'poster_image_url' => $performance->poster_image_url,
-            ];
-        });
-
-    return Inertia::render('Performances/Index', [
-        'performances' => $performances,
-    ]);
-})->name('performances.index');
+    return redirect('/admin/login');
+})->name('home');
 
 // 管理画面 - 認証
 Route::prefix('admin')->group(function () {
