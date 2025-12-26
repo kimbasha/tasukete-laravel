@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Troupe extends Model
+{
+    protected $fillable = [
+        'name',
+        'description',
+        'website',
+    ];
+
+    public function performances(): HasMany
+    {
+        return $this->hasMany(Performance::class);
+    }
+
+    public function adminUsers(): HasMany
+    {
+        return $this->hasMany(AdminUser::class);
+    }
+}
