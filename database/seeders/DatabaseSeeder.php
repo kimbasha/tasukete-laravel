@@ -32,13 +32,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\Performance::create([
             'troupe_id' => $troupe1->id,
             'title' => '夏の夜の夢',
-            'description' => 'シェイクスピアの名作',
+            'description' => 'シェイクスピアの名作。恋する若者たちと妖精たちが繰り広げる幻想的な物語をお楽しみください。',
             'venue' => '下北沢タイニイアリス',
             'area' => '下北沢',
             'performance_date' => '2025-12-26',
             'start_time' => '19:00',
+            'door_open_time' => '18:30',
             'ticket_price' => 3500,
             'has_day_tickets' => true,
+            'reservation_url' => 'https://example.com/reserve/1',
             'status' => 'today',
         ]);
 
