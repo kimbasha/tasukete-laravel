@@ -19,7 +19,7 @@ Route::get('/', function () {
                 'venue' => $performance->venue,
                 'area' => $performance->area,
                 'performance_date' => $performance->performance_date->format('Y-m-d'),
-                'start_time' => $performance->start_time,
+                'start_time' => substr($performance->start_time, 0, 5), // HH:MM形式
                 'ticket_price' => $performance->ticket_price,
                 'has_day_tickets' => $performance->has_day_tickets,
                 'poster_image_url' => $performance->poster_image_url,
